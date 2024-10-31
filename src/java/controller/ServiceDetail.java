@@ -17,8 +17,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name="HomeServlet", urlPatterns={"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name="ServiceDetail", urlPatterns={"/serviceDetail"})
+public class ServiceDetail extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,10 +35,10 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");  
+            out.println("<title>Servlet ServiceDetail</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ServiceDetail at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,8 +56,7 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         //processRequest(request, response);
-        
-        request.getRequestDispatcher("PublicService.jsp").forward(request, response);
+        request.getRequestDispatcher("ServiceDetail.jsp").forward(request, response);
     } 
 
     /** 
@@ -70,7 +69,8 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        //request.getRequestDispatcher("ServiceDetail.jsp").forward(request, response);
     }
 
     /** 

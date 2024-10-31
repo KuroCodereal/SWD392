@@ -1,4 +1,10 @@
+<%-- 
+    Document   : home
+    Created on : Oct 31, 2024, 5:11:57 PM
+    Author     : User
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -247,17 +253,9 @@ nav a:hover {
         </div>
         <div class="auth-buttons">
             <button class="register">Đăng ký</button>
-            <button class="login">Đăng nhập</button>
+            <a href="Login.jsp"><button class="login">Đăng nhập</button></a>
         </div>
     </div>
-    <nav>
-        <a href="#">Giới thiệu</a>
-        <a href="#">Thông tin và dịch vụ</a>
-        <a href="#">Thanh toán trực tuyến</a>
-        <a href="#">Phản ánh kiến nghị</a>
-        <a href="#">Thủ tục hành chính</a>
-        <a href="#">Hỗ trợ</a>
-    </nav>
 </header>
 
     <div class="container">
