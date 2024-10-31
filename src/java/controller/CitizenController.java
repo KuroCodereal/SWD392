@@ -5,6 +5,7 @@
 
 package controller;
 
+import Models.AuthorizeService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,13 +13,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author User
  */
-@WebServlet(name="HomeServlet", urlPatterns={"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name="CitizenController", urlPatterns={"/citizen"})
+public class CitizenController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,10 +37,10 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");  
+            out.println("<title>Servlet CitizenController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet CitizenController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,9 +57,14 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        //processRequest(request, response);
-        
-        request.getRequestDispatcher("PublicService.jsp").forward(request, response);
+        AuthorizeService autho = new AuthorizeService();
+        HttpSession session = request.getSession();
+        if(autho.requestAuthorization((String)session.getAttribute("autho"))){
+            request.getRequestDispatcher("Detail.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("Error.jsp");
+        }
     } 
 
     /** 

@@ -5,6 +5,7 @@
 
 package controller;
 
+import Models.AccountService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,13 +13,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  *
  * @author User
  */
-@WebServlet(name="HomeServlet", urlPatterns={"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name="AccountController", urlPatterns={"/account"})
+public class AccountController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,10 +38,10 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");  
+            out.println("<title>Servlet AccountController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AccountController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,8 +59,6 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         //processRequest(request, response);
-        
-        request.getRequestDispatcher("PublicService.jsp").forward(request, response);
     } 
 
     /** 
@@ -70,7 +71,21 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String username = request.getParameter("username");
+        String pass = request.getParameter("pass");
+        AccountService acc = new AccountService();
+        AccountService loginAcc = acc.getAccount(username, pass);
+        
+        if(loginAcc != null){
+            HttpSession session = request.getSession();
+            session.setAttribute("role", loginAcc.getRole());
+            request.getRequestDispatcher("ServiceDetail.jsp").forward(request, response);
+        }
+        else {
+            request.getRequestDispatcher("Error.jsp").forward(request, response);
+        }
+        
+        //processRequest(request, response);
     }
 
     /** 

@@ -1,4 +1,10 @@
+<%-- 
+    Document   : home
+    Created on : Oct 31, 2024, 5:11:57 PM
+    Author     : User
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -276,41 +282,18 @@ nav a:hover {
             <div class="service-section">
                 <h3>CÔNG DÂN</h3>
                 <ul>
-                    <button>Có con nhỏ</button>
-                    <button>Có con nhỏ</button>
-                    <button>Học tập</button>
-                    <button>Việc làm</button>
-                    <button>Cư trú và giấy tờ tùy thân</button>
-                    <button>Hôn nhân và gia đình</button>
-                    <button>Điện lực, nhà ở, đất đai</button>
-                    <button>Sức khỏe và y tế</button>
-                    <button>Phương tiện và người lái</button>
-                    <button>Hưu trí</button>
-                    <button>Người thân qua đời</button>
-                    <button>Giải quyết khiếu kiện</button>
+                    <div>No Service Found</div>
                 </ul>
             </div>
             <div class="service-section">
                 <h3>DOANH NGHIỆP</h3>
                 <ul>
-                    <button>Khởi sự kinh doanh</button>
-                    <button>Lao động và bảo hiểm xã hội</button>
-                    <button>Tài chính doanh nghiệp</button>
-                    <button>Điện lực, đất đai, xây dựng</button>
-                    <button>Thương mại, quảng cáo</button>
-                    <button>Sở hữu trí tuệ, đăng ký tài sản</button>
-                    <button>Thành lập chi nhánh, văn phòng đại diện</button>
-                    <button>Đấu thầu, mua sắm công</button>
-                    <button>Tái cấu trúc doanh nghiệp</button>
-                    <button>Giải quyết tranh chấp hợp đồng</button>
-                    <button>Tạm dừng, chấm dứt hoạt động</button>
+                    <div>No Service Found</div>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="footer">
-        <p>Cơ quan chủ quản: Văn phòng Chính phủ | www.dichvucong.gov.vn | Tổng đài hỗ trợ: 18001096 | Email: dichvucong@chinhphu.vn</p>
-    </div>
+    
 </body>
 </html>
