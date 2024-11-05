@@ -274,18 +274,17 @@ nav a:hover {
             <div class="service-section">
                 <h3>CÔNG DÂN</h3>
                 <ul>
-                    <button>Có con nhỏ</button>
-                    <button>Có con nhỏ</button>
-                    <button>Học tập</button>
-                    <button>Việc làm</button>
-                    <button>Cư trú và giấy tờ tùy thân</button>
-                    <button>Hôn nhân và gia đình</button>
-                    <button>Điện lực, nhà ở, đất đai</button>
-                    <button>Sức khỏe và y tế</button>
-                    <button>Phương tiện và người lái</button>
-                    <button>Hưu trí</button>
-                    <button>Người thân qua đời</button>
-                    <button>Giải quyết khiếu kiện</button>
+                    <button><a href="">Có con nhỏ</a></button>
+                    <button><a href="ServiceDetail.jsp">Học tập</a></button>
+                    <button><a href="link1.html">Việc làm</a></button>
+                    <button><a href="link2.html">Cư trú và giấy tờ tùy thân</a></button>
+<button><a href="link3.html">Hôn nhân và gia đình</a></button>
+<button><a href="link4.html">Điện lực, nhà ở, đất đai</a></button>
+<button><a href="link5.html">Sức khỏe và y tế</a></button>
+<button><a href="link6.html">Phương tiện và người lái</a></button>
+<button><a href="link7.html">Hưu trí</a></button>
+<button><a href="link8.html">Người thân qua đời</a></button>
+<button><a href="link9.html">Giải quyết khiếu kiện</a></button>
                 </ul>
             </div>
             <div class="service-section">

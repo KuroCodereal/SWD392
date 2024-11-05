@@ -17,18 +17,23 @@ import java.util.List;
 public class AccountService {
     private String username;
     private String password;
-    private String role;
-    public AccountService(String username, String password, String role){
+    private int role;
+    public AccountService(String username, String password, int role){
         this.username = username;
         this.password = password;
         this.role = role;
     }
     
-    public String getRole(){
+    public int getRole(){
         return this.role;
     }
     public AccountService(){
         
+    }
+    
+    @Override
+    public String toString() {
+        return "AccountService{username='" + username + "', password='" + password + "', role='" + role + "'}";
     }
     public AccountService getAccount(String email, String pass){
         String sql = "SELECT *\n" + "FROM Users where email = '" + email +"'" + "and password = '" + pass +"'";
@@ -37,7 +42,7 @@ public class AccountService {
             PreparedStatement st = dao.connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             if(rs.next()){
-                AccountService p = new AccountService(rs.getString(2),rs.getString(3),rs.getString(8));
+                AccountService p = new AccountService(rs.getString(2),rs.getString(3),rs.getInt("RoleId"));
                 return p;
             }
         }
@@ -46,4 +51,6 @@ public class AccountService {
         }
         return null;
     }
+    
+    
 }

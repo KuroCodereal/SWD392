@@ -79,7 +79,8 @@ public class AccountController extends HttpServlet {
         if(loginAcc != null){
             HttpSession session = request.getSession();
             session.setAttribute("role", loginAcc.getRole());
-            request.getRequestDispatcher("ServiceDetail.jsp").forward(request, response);
+            request.getRequestDispatcher("PublicService.jsp").forward(request,response);
+            //request.getRequestDispatcher("ServiceDetail.jsp").forward(request, response);
         }
         else {
             request.getRequestDispatcher("Error.jsp").forward(request, response);
