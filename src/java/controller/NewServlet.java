@@ -4,6 +4,8 @@
  */
 package controller;
 
+import dal.ApplicationDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,6 +13,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
+import model.Application;
 
 /**
  *
@@ -57,7 +61,26 @@ public class NewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            System.out.println("Bắt đầu xử lý doGet");
+
+    // Tạo đối tượng DAO để lấy danh sách ứng dụng
+    ApplicationDAO dao = new ApplicationDAO();
+    List<Application> list = dao.getAll();
+
+    // In ra console để kiểm tra danh sách
+    System.out.println("Danh sách ứng dụng được lấy từ DAO:");
+    for (Application app : list) {
+        System.out.println("ID: " + app.getAId() + ", Agency Handling: " + app.getAgency_handling());
+    }
+
+    // Đặt danh sách ứng dụng vào attribute của request
+    request.setAttribute("data", list);
+    System.out.println("Đã đặt danh sách vào request attribute");
+
+    // Chuyển tiếp request tới trang JSP để hiển thị dữ liệu
+    RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
+    dispatcher.forward(request, response);
+    System.out.println("Đã chuyển tiếp request tới list.jsp");
     }
 
     /**
